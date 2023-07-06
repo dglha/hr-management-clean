@@ -16,7 +16,7 @@ public class LeaveAllocationRepository : GenericRepository<LeaveAllocation>, ILe
     {
     }
 
-    public async Task AddAllocation(List<LeaveAllocation> allocations)
+    public async Task AddAllocations(List<LeaveAllocation> allocations)
     {
         await _context.AddRangeAsync(allocations);
         await _context.SaveChangesAsync();

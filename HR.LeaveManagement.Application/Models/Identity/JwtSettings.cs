@@ -1,6 +1,6 @@
 namespace HR.LeaveManagement.Application.Contracts.Identity;
 
-public class JwsSettings
+public class JwtSettings
 {
     public string Key { get; set; }
     public string Issuser { get; set; }

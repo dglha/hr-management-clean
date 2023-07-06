@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using HR.LeaveManagement.Application.Features.LeaveRequest.Commands.CancelLeaveRequest;
+using HR.LeaveManagement.Application.Features.LeaveRequest.Commands.ChangeLeaveRequestApproval;
 using HR.LeaveManagement.Application.Features.LeaveRequest.Commands.CreateLeaveRequest;
 using HR.LeaveManagement.Application.Features.LeaveRequest.Commands.DeleteLeaveRequest;
 using HR.LeaveManagement.Application.Features.LeaveRequest.Commands.UpdateLeaveRequest;
@@ -74,5 +76,34 @@ namespace HR.LeaveManagement.API.Controllers
             await _mediator.Send(command);
             return NoContent();
         }
+        
+        // Functional
+        
+        [HttpPut]
+        [Route("UpdateApproval")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesDefaultResponseType]
+        public async Task<ActionResult> UpdateApproval(ChangeLeaveRequestApprovalCommand updateApprovalRequest)
+        {
+            await _mediator.Send(updateApprovalRequest);
+
+            return NoContent();
+        }
+        
+        [HttpPut]
+        [Route("CancelRequest")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesDefaultResponseType]
+        public async Task<ActionResult> CancelRequest(CancelLeaveRequestCommand cancelLeaveRequest)
+        {
+            await _mediator.Send(cancelLeaveRequest);
+            return NoContent();
+        }
+        
+        
     }
 }

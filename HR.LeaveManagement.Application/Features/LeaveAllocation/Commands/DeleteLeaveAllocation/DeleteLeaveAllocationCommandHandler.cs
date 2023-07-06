@@ -12,7 +12,8 @@ public class DeleteLeaveAllocationCommandHandler : IRequestHandler<DeleteLeaveAl
     private readonly IMapper _mapper;
     private readonly IAppLogger<DeleteLeaveAllocationCommandHandler> _logger;
 
-    public DeleteLeaveAllocationCommandHandler(ILeaveAllocationRepository allocationRepository, IMapper mapper, IAppLogger<DeleteLeaveAllocationCommandHandler> logger)
+    public DeleteLeaveAllocationCommandHandler(ILeaveAllocationRepository allocationRepository, IMapper mapper,
+        IAppLogger<DeleteLeaveAllocationCommandHandler> logger)
     {
         _allocationRepository = allocationRepository;
         _mapper = mapper;

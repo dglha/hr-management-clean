@@ -15,12 +15,12 @@ public class AuthService : IAuthService
 
 {
     private readonly UserManager<ApplicationUser> _userManager;
-    private readonly JwsSettings _jwsSettings;
+    private readonly JwtSettings _jwtSettings;
 
-    public AuthService(UserManager<ApplicationUser> userManager, JwsSettings jwsSettings)
+    public AuthService(UserManager<ApplicationUser> userManager, IOptions<JwtSettings> jwtSettings)
     {
         _userManager = userManager;
-        _jwsSettings = jwsSettings;
+        _jwtSettings = jwtSettings.Value;
     }
 
     public async Task<AuthResponse> Login(AuthRequest request)
@@ -97,15 +97,15 @@ public class AuthService : IAuthService
             }.Union(userClaims)
             .Union(roleClaims);
 
-        var symmetricSecurityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwsSettings.Key));
+        var symmetricSecurityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtSettings.Key));
 
         var signingCredentials = new SigningCredentials(symmetricSecurityKey, SecurityAlgorithms.HmacSha256);
         
         var jwtSecurityToken = new JwtSecurityToken(
-            issuer: _jwsSettings.Issuser,
-            audience: _jwsSettings.Audience,
+            issuer: _jwtSettings.Issuser,
+            audience: _jwtSettings.Audience,
             claims: claim,
-            expires: DateTime.Now.AddMinutes(_jwsSettings.DurationInMinutes),
+            expires: DateTime.Now.AddMinutes(_jwtSettings.DurationInMinutes),
             signingCredentials: signingCredentials);
         return jwtSecurityToken; 
     }

@@ -3,6 +3,7 @@
   <component name="EfCoreDialogsState">
     <option name="keyValueStorage">
       <map>
+        <entry key="Common:11258f59-566c-4b9f-90ce-ae2ce3856828:dbContext" value="HR.Management.Identity.DbContext.HRLeaveManagementIdentityDbContext" />
         <entry key="Common:2f4bf1a9-ba91-41b2-949f-b1b9b4ca769c:dbContext" value="HR.LeaveManagement.Persistence.DatabaseContext.HRDatabaseContext" />
         <entry key="Common:buildConfiguration" value="Debug" />
         <entry key="Common:noBuild" value="false" />

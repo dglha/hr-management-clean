@@ -30,8 +30,11 @@ namespace HR.LeaveManagement.Persistence.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("CreatedAt")
+                    b.Property<DateTime?>("CreatedAt")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("EmployeeId")
                         .IsRequired()
@@ -40,13 +43,16 @@ namespace HR.LeaveManagement.Persistence.Migrations
                     b.Property<int>("LeaveTypeId")
                         .HasColumnType("int");
 
+                    b.Property<string>("ModifiedBy")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("NumberOfDays")
                         .HasColumnType("int");
 
                     b.Property<int>("Period")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("UpdatedAt")
+                    b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
@@ -70,8 +76,11 @@ namespace HR.LeaveManagement.Persistence.Migrations
                     b.Property<bool>("Cancelled")
                         .HasColumnType("bit");
 
-                    b.Property<DateTime>("CreatedAt")
+                    b.Property<DateTime?>("CreatedAt")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("DateRequested")
                         .HasColumnType("datetime2");
@@ -81,6 +90,9 @@ namespace HR.LeaveManagement.Persistence.Migrations
 
                     b.Property<int>("LeaveTypeId")
                         .HasColumnType("int");
+
+                    b.Property<string>("ModifiedBy")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("RequestComments")
                         .HasColumnType("nvarchar(max)");
@@ -92,7 +104,7 @@ namespace HR.LeaveManagement.Persistence.Migrations
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("UpdatedAt")
+                    b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
@@ -110,18 +122,24 @@ namespace HR.LeaveManagement.Persistence.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("CreatedAt")
+                    b.Property<DateTime?>("CreatedAt")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("DefaultDays")
                         .HasColumnType("int");
+
+                    b.Property<string>("ModifiedBy")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<DateTime>("UpdatedAt")
+                    b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
@@ -132,10 +150,10 @@ namespace HR.LeaveManagement.Persistence.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2023, 6, 18, 9, 29, 10, 894, DateTimeKind.Local).AddTicks(5471),
+                            CreatedAt = new DateTime(2023, 7, 6, 21, 58, 49, 636, DateTimeKind.Local).AddTicks(1907),
                             DefaultDays = 10,
                             Name = "Vacation",
-                            UpdatedAt = new DateTime(2023, 6, 18, 9, 29, 10, 894, DateTimeKind.Local).AddTicks(5483)
+                            UpdatedAt = new DateTime(2023, 7, 6, 21, 58, 49, 636, DateTimeKind.Local).AddTicks(1922)
                         });
                 });
 

@@ -8,6 +8,6 @@ public interface ILeaveAllocationRepository : IGenericRepository<LeaveAllocation
     Task<IEnumerable<LeaveAllocation>> GetLeaveAllocationsWithDetails();
     Task<IEnumerable<LeaveAllocation>> GetLeaveAllocationsWithDetails(string userId);
     Task<bool> AllocationExists(string userId, int leaveTypeId, int period);
-    Task AddAllocation(List<LeaveAllocation> allocations);
+    Task AddAllocations(List<LeaveAllocation> allocations);
     Task<LeaveAllocation> GetUserAllocations(string userId, int leaveTypeId);
 }
