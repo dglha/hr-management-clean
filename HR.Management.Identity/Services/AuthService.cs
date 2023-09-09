@@ -102,7 +102,7 @@ public class AuthService : IAuthService
         var signingCredentials = new SigningCredentials(symmetricSecurityKey, SecurityAlgorithms.HmacSha256);
         
         var jwtSecurityToken = new JwtSecurityToken(
-            issuer: _jwtSettings.Issuser,
+            issuer: _jwtSettings.Issuer,
             audience: _jwtSettings.Audience,
             claims: claim,
             expires: DateTime.Now.AddMinutes(_jwtSettings.DurationInMinutes),

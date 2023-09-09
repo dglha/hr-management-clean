@@ -48,6 +48,7 @@ public class CreateLeaveAllocationCommandHandler : IRequestHandler<CreateLeaveAl
         var period = DateTime.Now.Year;
 
         var allocations = new List<Domain.LeaveAllocation>();
+        
         foreach (var employee in employees)
         {
             var isAllocationExists =

@@ -25,13 +25,3 @@ public class LeaveTypeProfile : Profile
         CreateMap<UpdateLeaveTypeCommand, LeaveType>();
     }
 }
-
-public class LeaveAllocationProfile : Profile
-{
-    public LeaveAllocationProfile()
-    {
-        CreateMap<LeaveAllocationDTO, LeaveAllocation>().ReverseMap();
-        CreateMap<LeaveAllocation, LeaveAllocationDetailsDTO>();
-        CreateMap<CreateLeaveAllocationCommand, LeaveAllocation>();
-    }
-}

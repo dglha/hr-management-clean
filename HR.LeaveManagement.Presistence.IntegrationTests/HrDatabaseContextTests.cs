@@ -14,7 +14,7 @@ public class HrDatabaseContextTests
         var dbOptions = new DbContextOptionsBuilder<HRDatabaseContext>()
             .UseInMemoryDatabase(Guid.NewGuid().ToString()).Options;
 
-        _dbContext = new HRDatabaseContext(dbOptions);
+        // _dbContext = new HRDatabaseContext(dbOptions.);
     }
 
     [Fact]
